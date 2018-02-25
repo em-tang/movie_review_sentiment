@@ -2,7 +2,7 @@ from sklearn import decomposition
 from sklearn import datasets
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
@@ -42,26 +42,13 @@ def svm():
 
 # def 
 if __name__ == '__main__':
-  x_train = pd.read_csv(filepath_or_buffer='out_bag_of_words_5.csv', header=None, sep=',').values
-
-  y_train = pd.read_csv(filepath_or_buffer='out_classes_5.txt', header=None, sep=',').values
-  x_test = pd.read_csv(filepath_or_buffer='test_bag_of_words_5.csv', header=None, sep=',').values
-  y_test = pd.read_csv(filepath_or_buffer='test_classes_5.txt', header=None, sep=',').values
+  x_train = pd.read_csv(filepath_or_buffer='train_bag_of_words_5.csv', header=None, sep=',').values
+  y_train = pd.read_csv(filepath_or_buffer='train_classes_5.txt', header=None, sep=',').values
+  x_test = pd.read_csv(filepath_or_buffer='test_bag_of_words_0.csv', header=None, sep=',').values
+  y_test = pd.read_csv(filepath_or_buffer='test_classes_0.txt', header=None, sep=',').values
   
-  train_txt = open("out_vocab_5.txt", "r")
-  train_words = train_txt.read().split('\n')
-  test_txt = open("test_vocab_5.txt", "r")
-  test_words = test_txt.read().split('\n')
-  intersection = list(set(test_words) & set(train_words))
-  x_test = 
+  print((y_train.shape))
+  print(y_test.shape)
   
-  # test_words = [] 
-  # for i in range(train_words):
-    # if word not in test_words_unclean: 
-      # test_words.append(0)
-    # else:
-      # test_words.append(x_te
-
-
   print("read in data")
   # print(logistic_regression(x_train,y_train,x_test,y_test))
