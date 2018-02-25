@@ -118,7 +118,7 @@ def main(argv):
   start_time = time.time()
 
   path = ''
-  outputf = 'out'
+  outputf = 'test'
   vocabf = ''
 
   try:
@@ -137,7 +137,7 @@ def main(argv):
     elif opt in ("-v", "--vocabfile"):
       vocabf = arg
 
-  traintxt = path+"/train.txt"
+  traintxt = path+"test.txt"
   print ('Path:' + path)
   print ('Training data:' + traintxt)
 
@@ -148,7 +148,7 @@ def main(argv):
     vocab = wordcount_filter(words, num=word_count_threshold)
     # Write new vocab file
     vocabf = outputf+"_vocab_"+str(word_count_threshold)+".txt"
-    outfile = codecs.open(path+"/"+vocabf, 'w',"utf-8-sig")
+    outfile = codecs.open(vocabf, 'w',"utf-8-sig")
     outfile.write("\n".join(vocab))
     outfile.close()
   else:
@@ -166,17 +166,17 @@ def main(argv):
   print ("Doc with smallest number of words in vocab has:",min(numpy.sum(bow, axis=1)))
 
   # Write bow file
-  with open(path+"/"+outputf+"_bag_of_words_"+str(word_count_threshold)+".csv", "w") as f:
+  with open(outputf+"_bag_of_words_"+str(word_count_threshold)+".csv", "w") as f:
     writer = csv.writer(f)
     writer.writerows(bow)
 
   # Write classes
-  outfile = open(path+"/"+outputf+"_classes_"+str(word_count_threshold)+".txt", 'w')
+  outfile = open(outputf+"_classes_"+str(word_count_threshold)+".txt", 'w')
   outfile.write("\n".join(classes))
   outfile.close()
 
   # Write samples
-  outfile = open(path+"/"+outputf+"_samples_class_"+str(word_count_threshold)+".txt", 'w')
+  outfile = open(outputf+"_samples_class_"+str(word_count_threshold)+".txt", 'w')
   outfile.write("\n".join(samples))
   outfile.close()
 
